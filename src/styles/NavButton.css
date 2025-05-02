@@ -1,0 +1,16 @@
+.nav-button {
+    color: rgba(255, 255, 255, 1);
+    background-color: transparent;
+    border: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+}
+
+.nav-button--contact {
+    background-color: rgba(255, 255, 255, 1);
+    color: #000;
+    border-radius: 5px;
+    padding: 0.75rem 1.25rem;
+}
