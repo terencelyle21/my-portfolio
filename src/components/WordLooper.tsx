@@ -10,6 +10,7 @@ const animationDuration = 0.6;
 
 export const WordLooper: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const parallaxContainerRef = useRef<HTMLDivElement>(null); // Ref for the outer container
   const totalStepsRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const intervalIdRef = useRef<number | null>(null);
@@ -76,10 +77,41 @@ export const WordLooper: React.FC = () => {
     };
   }, []);
 
+  // Effect for parallax scrolling
+  useEffect(() => {
+    let animationFrameId: number;
+
+    const handleScroll = () => {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+        animationFrameId = requestAnimationFrame(() => {
+            if (parallaxContainerRef.current) {
+                const scrollTop = window.pageYOffset;
+                // Adjust the parallax speed factor (e.g., 0.1 for a subtle effect)
+                const offset = scrollTop * -0.2; // Make the offset negative
+                parallaxContainerRef.current.style.transform = `translateY(${offset}px)`;
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true }); // Use passive listener for performance
+
+    // Initial call to set position
+    handleScroll();
+
+    return () => {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array ensures this runs once on mount
+
   const loopedWords = [...words, ...words];
 
   return (
-    <div className="word-looper">
+    <div className="word-looper" ref={parallaxContainerRef}> {/* Attach the ref here */}
       <div ref={containerRef} className="word-looper__inner">
         {loopedWords.map((word, index) => (
           <div key={index} className="word-looper__item">
