@@ -1,12 +1,19 @@
+@font-face {
+  font-family: 'BitcrusherCondensed';
+  src: url('../assets/fonts/bitcrusher condensed bd.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 .word-looper {
-    margin: auto;
+  margin: auto;
   position: relative;
   width: max-content;
-  height: 9rem;
+  height: 12rem;
   overflow: hidden;
   font-weight: 700;
-  font-size: 6rem;
-  line-height: 9rem;
+  font-size: 9rem;
+  line-height: 12rem;
   text-align: center;
 }
 
@@ -40,12 +47,14 @@
 }
 
 .word-looper__item {
-  height: 9rem;
+  height: 12rem;
+  font-family: 'BitcrusherCondensed', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   position: relative;
+  color: white;
 }
 
 .word-looper__dots {
