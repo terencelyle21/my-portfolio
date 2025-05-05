@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'BitcrusherCondensed';
+  src: url('../assets/fonts/bitcrusher condensed bd.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   font-family: 'Ague', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
