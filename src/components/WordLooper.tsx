@@ -3,8 +3,8 @@ import gsap from "gsap";
 
 import '../styles/WordLooper.css';
 
-const words = ["Front end Developer","User Interface", "Web Development", "User Experience", "Software Engineer"];
-const itemHeight = 144;
+const words = ["Front end Developer","UI/UX Designer", "Software Engineer"];
+const itemHeight = 192;
 const intervalDuration = 2000;
 const animationDuration = 0.6;
 
