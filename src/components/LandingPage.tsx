@@ -31,7 +31,6 @@ const LandingPage: React.FC = () => {
             animationFrameId = requestAnimationFrame(() => {
                 if (heroRef.current) {
                     const scrollTop = window.pageYOffset;
-                    // Reduced parallax speed factor for smoother effect (e.g., 0.03)
                     const offset = scrollTop * 0.05;
                     heroRef.current.style.backgroundPosition = `center ${offset}px`;
                 }
@@ -40,7 +39,6 @@ const LandingPage: React.FC = () => {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Call handleScroll once on mount to start parallax immediately
         handleScroll();
 
         return () => {

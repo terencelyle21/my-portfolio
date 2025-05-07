@@ -4,8 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 2vw;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -23,18 +22,38 @@
 }
 
 .nav-container {
-  /* Frosted glass effect */
-  width: 80%;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.15); /* Adjust alpha for transparency (0.0 to 1.0) */
-  backdrop-filter: blur(5px);                 /* Adjust blur radius as needed */
-  -webkit-backdrop-filter: blur(10px);         /* For Safari compatibility */
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
 
-  /* Optional: Add a subtle border for better visual separation */
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  
-  /* Optional: If your container needs rounded corners */
-  border-radius: 14px;
+.nav-container-1 {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+}
+
+/* .nav-container-1 .home-1 {
+  font-size: 1.2rem;
+} */
+
+.nav-container-1 h3{
+  color: #fff;
+  margin: 0;
+}
+
+.nav-container-2 {
+  width: max-content;
+  display: flex;
+  column-gap: 30px;
+}
+
+.nav-container-2 h3 {
+  color: #fff;
+  margin: 0;
 }
 
 /* ----------------------------- */

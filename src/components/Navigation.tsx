@@ -4,6 +4,8 @@ import '../styles/Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
+// import titleIcon from '../assets/images/title-icon.png';
+
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
 
@@ -36,10 +38,13 @@ const Navbar = () => {
             <div className={`header-nav ${!visible ? 'is-shown' : ''}`}>
                 <div className="nav-container">
                     <div className="nav-container-1">
-
+                        {/* <h3><FontAwesomeIcon icon={faHome} className='home-1' /></h3> */}
+                        <h3>Terence Borromeo</h3>
                     </div>
                     <div className="nav-container-2">
-
+                        <h3>Project</h3>
+                        <h3>Infos</h3>
+                        <h3>Contact</h3>
                     </div>
                 </div>
             </div>
