@@ -1,3 +1,44 @@
+.header-nav {
+  height: max-content;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.header-nav.is-shown {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-container {
+  /* Frosted glass effect */
+  width: 80%;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.15); /* Adjust alpha for transparency (0.0 to 1.0) */
+  backdrop-filter: blur(5px);                 /* Adjust blur radius as needed */
+  -webkit-backdrop-filter: blur(10px);         /* For Safari compatibility */
+
+  /* Optional: Add a subtle border for better visual separation */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  
+  /* Optional: If your container needs rounded corners */
+  border-radius: 14px;
+}
+
+/* ----------------------------- */
+
 .navbar {
   width: auto;
   display: flex;
