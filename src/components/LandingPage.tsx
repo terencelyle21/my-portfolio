@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Button from './ui/Button';
 
 // hooks
@@ -10,6 +10,8 @@ import { WordLooper } from "./WordLooper";
 import '../styles/LandingPage.css';
 
 const LandingPage: React.FC = () => {
+    const heroRef = useRef<HTMLElement>(null);
+
     useScrollTriggerAnimation('.animated-heading');
 
     useScrollSmoother({
@@ -19,11 +21,41 @@ const LandingPage: React.FC = () => {
         effects: true,
     });
 
+    useEffect(() => {
+        let animationFrameId: number;
+
+        const handleScroll = () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            animationFrameId = requestAnimationFrame(() => {
+                if (heroRef.current) {
+                    const scrollTop = window.pageYOffset;
+                    // Reduced parallax speed factor for smoother effect (e.g., 0.03)
+                    const offset = scrollTop * 0.05;
+                    heroRef.current.style.backgroundPosition = `center ${offset}px`;
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Call handleScroll once on mount to start parallax immediately
+        handleScroll();
+
+        return () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <div id="smooth-wrapper">
             <div id="smooth-content"> 
-                <section className='hero-section'>
-                    <div className='container'>
+                <section className='hero-section' ref={heroRef}>
+                    <div className='container animated-heading'>
                         <WordLooper />
                     </div>
                 </section>
@@ -37,7 +69,7 @@ const LandingPage: React.FC = () => {
                 <section className='project-section'>
                 <div className='container'>
                     <h1 className="animated-heading">Welcome to My Portfolio!!</h1>
-                    <Button>
+                    <Button className='animated-heading'>
                         Get Started
                     </Button>
                 </div>

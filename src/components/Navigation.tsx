@@ -33,6 +33,16 @@ const Navbar = () => {
 
     return (
         <nav>
+            <div className={`header-nav ${!visible ? 'is-shown' : ''}`}>
+                <div className="nav-container">
+                    <div className="nav-container-1">
+
+                    </div>
+                    <div className="nav-container-2">
+
+                    </div>
+                </div>
+            </div>
             <div className={`navbar ${visible ? 'slide-up visible' : 'slide-down hidden'}`}>
                 <NavButton>
                     <FontAwesomeIcon icon={faHome} />
