@@ -1,0 +1,37 @@
+#cursor1 {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #888888;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transition: .1s;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+#cursor2 {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background-color: #888888;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transition: .08s;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.text:hover~#cursor1 {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: #888888;
+    opacity: .4;
+}
+
+.text:hover~#cursor2 {
+    display: none;
+}
