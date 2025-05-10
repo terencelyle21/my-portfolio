@@ -42,9 +42,9 @@ const Navbar = () => {
                         <h3>Terence Borromeo</h3>
                     </div>
                     <div className="nav-container-2">
-                        <h3>Project</h3>
-                        <h3>Infos</h3>
-                        <h3>Contact</h3>
+                        <h3 className="text">Project</h3>
+                        <h3 className="text">Infos</h3>
+                        <h3 className="text">Contact</h3>
                     </div>
                 </div>
             </div>
